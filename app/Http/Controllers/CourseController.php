@@ -7,14 +7,21 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     public function index(){
-        return "Sección de cursos";
+        return view('course.index');
     }
 
     public function create(){
-        return "Sección para crear cursos";
+        return view('course.create');
     }
 
     public function show($course){
-        return "El curso escogido es $course";
+        return view('course.show',['course'=>$course]);
     }
 }
+
+/* Route::get("courses/{curso}/{category?}", function ($course, $category = null){
+    $category = $category ? $category : 'sin categoria';
+
+    return "Bienvenido al curso $course  - $category";
+
+}); */

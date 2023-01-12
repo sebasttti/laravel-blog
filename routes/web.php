@@ -18,23 +18,13 @@ use App\Http\Controllers\CourseController;
 
 Route::get('/', HomeController::class);
 
-Route::get('/courses', [CourseController::class,'index']);
 
-Route::get('/courses/create', [CourseController::class,'create']);
+Route::controller(CourseController::class)->group(function (){
 
-Route::get('/courses/show/{course}', [CourseController::class,'show']);
+    Route::get('/courses', 'index');
 
+    Route::get('/courses/create', 'create');
 
-//Leo un curso en especifico
+    Route::get('/courses/show/{course}', 'show');
 
-/* Route::get('/courses/{course}', function ($course) {
-    //return view('welcome');
-    return "El curso al que quiero acceder es $course";
-}); */
-
-/* Route::get("courses/{curso}/{category?}", function ($course, $category = null){
-    $category = $category ? $category : 'sin categoria';
-
-    return "Bienvenido al curso $course  - $category";
-
-}); */
+});
