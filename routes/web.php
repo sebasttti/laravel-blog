@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/courses', function () {
+    //return view('welcome');
+    return "Sessión de cursos";
+});
+
+//Leo un curso en especifico
+
+/* Route::get('/courses/{course}', function ($course) {
+    //return view('welcome');
+    return "El curso al que quiero acceder es $course";
+}); */
+
+Route::get("courses/{curso}/{category?}", function ($course, $category = null){
+    $category = $category ? $category : 'sin categoria';
+
+    return "Bienvenido al curso $course  - $category";
+
 });
