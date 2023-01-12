@@ -2,6 +2,8 @@
 
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class);
 
-Route::get('/courses', function () {
-    //return view('welcome');
-    return "Sessión de cursos";
-});
+Route::get('/courses', [CourseController::class,'index']);
+
+Route::get('/courses/create', [CourseController::class,'create']);
+
+Route::get('/courses/show/{course}', [CourseController::class,'show']);
+
 
 //Leo un curso en especifico
 
@@ -30,9 +32,9 @@ Route::get('/courses', function () {
     return "El curso al que quiero acceder es $course";
 }); */
 
-Route::get("courses/{curso}/{category?}", function ($course, $category = null){
+/* Route::get("courses/{curso}/{category?}", function ($course, $category = null){
     $category = $category ? $category : 'sin categoria';
 
     return "Bienvenido al curso $course  - $category";
 
-});
+}); */
