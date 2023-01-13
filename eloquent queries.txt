@@ -1,0 +1,21 @@
+use \App\Model\Course;
+
+$courses = Course::where('category','Diseño Web')->orderBy('name','asc')->get();
+$courses = Course::where('category','Diseño Web')->orderBy('name','asc')->first();
+
+
+$courses = Course::select('name','description')->where('category','Web Development')->orderBy('name','asc')->first();
+
+$courses = Course::where('category','Diseño Web')->orderBy('name','asc')->take(5);
+
+//get siempre devuelve un array
+
+//first siempre devuelve un objecto
+
+$courses = Course:find(5);
+
+Encuentra el elemento con id 5 
+
+
+$courses = Course::where('id','>',45)->get();
+$courses = Course::where('name','like','%Hola mundo%')->get();
