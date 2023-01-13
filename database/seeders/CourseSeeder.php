@@ -15,11 +15,13 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        $course = new Course();
+        /* $course = new Course();
         $course->name = 'Laravel';
         $course->description = 'Curso de Laravel';
         $course->category = 'Desarrollo Web';
         
-        $course->save();
+        $course->save(); */
+
+        Course::factory(50)->create();
     }
 }
