@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>Esta es la seccioń para crear cursos</h1>
+<h1>Esta es la sección para crear cursos</h1>
 
 @endsection
 

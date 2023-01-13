@@ -21,10 +21,10 @@ Route::get('/', HomeController::class);
 
 Route::controller(CourseController::class)->group(function (){
 
-    Route::get('/courses', 'index');
+    Route::get('/courses', 'index')->name('courses.index');
 
-    Route::get('/courses/create', 'create');
+    Route::get('/courses/create', 'create')->name('courses.create');
 
-    Route::get('/courses/show/{course}', 'show');
+    Route::get('/courses/show/{course}', 'show')->name('courses.show');
 
 });
