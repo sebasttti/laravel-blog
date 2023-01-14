@@ -15,7 +15,7 @@ class CourseController extends Controller
 
             //Sirve para paginar - utiliza GET['page'];
 
-        $courses = Course::paginate(5);
+        $courses = Course::orderBy('id','desc')->paginate(5);
 
         return view('course.index', ['courses'=>$courses]);
     }
@@ -30,7 +30,45 @@ class CourseController extends Controller
 
         //return $course;
 
-        return view('course.show',['thisCourse'=>$course]);
+        return view('course.show',['course'=>$course]);
+    }
+
+    public function edit(Course $course){
+
+        return view('course.edit',['course'=>$course]);
+    }
+
+    public function update(Request $request, Course $course){
+
+        $course->name = $request->name;
+        $course->description = $request->description;
+        $course->category = $request->category;
+
+        $course->save();
+
+        return redirect()->route('courses.show',$course);
+        
+    }
+
+
+    public function store(Request $request){
+
+        $course = new Course();
+
+        $course->name = $request->name;
+        $course->description = $request->description;
+        $course->category = $request->category;
+
+        $savingData = $course->save();
+
+        return redirect()->route('courses.show',$course);
+        
+        
+        //$course = Course::find($id);
+
+        //return $course;
+
+        //return view('course.show',['thisCourse'=>$course]);
     }
 }
 

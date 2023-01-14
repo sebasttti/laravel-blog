@@ -1,35 +1,38 @@
+
 @extends('layouts.layout')
 
-@section('title', 'Courses-creatre')
+@section('title', 'Courses-edit')
 
 @section('content')
 
-    <h1>Esta es la sección para crear cursos</h1>
+<h1>Editar el curso: {{$course->name}}</h1>
 
-    <form action="{{ route('courses.store') }}" method="post">
+    <form action="{{ route('courses.update',$course->id) }}" method="post">
 
         @csrf
 
+        @method('put')
+
         <label>
             Nombre:<br>
-            <input type="text" name="name">
+            <input type="text" name="name" value="{{$course->name}}">
         </label>
         <br>
         <label>
             Descripcion:<br>
-            <textarea type="text" name="description" rows="5"></textarea>
+            <textarea type="text" name="description" rows="5">{{$course->description}}</textarea>
         </label>
         <br>
         <label>
             Categoría:<br>
-            <select name="category">
-                <option value="" selected hidden>Seleccione categoria</option>
+            <select name="category" value="{{$course->category}}">
                 <option value="Web development">Web development</option>
                 <option value="Mobile development">Mobile development</option>
             </select>
         </label>
         <br>
-        <button type="submit">Enviar</button>
+        <button type="submit">Actualizar</button>
     </form>
 
 @endsection
+

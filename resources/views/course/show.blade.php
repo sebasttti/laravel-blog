@@ -1,13 +1,15 @@
 @extends('layouts.layout')
 
-@section('title', "Courses-show $thisCourse->id")
+@section('title', "Courses-show $course->id")
 
 @section('content')
 
-    <h1>Bienvenido al curso {{$thisCourse->name}}</h1>
-    <p><strong>Categoria: {{$thisCourse->category}}</strong></p>
-    <p><strong>Descripción: {{$thisCourse->description}}</strong></p>
+    <h1>Bienvenido al curso {{$course->name}}</h1>
+    <p><strong>Categoria: {{$course->category}}</strong></p>
+    <p><strong>Descripción: {{$course->description}}</strong></p>
     
+    <br>
+    <a href="{{route('courses.edit',$course)}}">Editar curso</a>
     <br>
     <a href="{{route('courses.index')}}">Volver a cursos</a>
 @endsection
