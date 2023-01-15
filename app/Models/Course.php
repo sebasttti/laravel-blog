@@ -21,6 +21,16 @@ class Course extends Model
 
     //protected $table = 'courses';
 
+    /**
+     * Get the route key for the model.
+     * @override
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     protected function name(): Attribute
     {
         return Attribute::make(
