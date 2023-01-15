@@ -10,6 +10,15 @@ class Course extends Model
 {
     use HasFactory;
 
+    //Los campos que queremos permitir
+
+    /* protected $fillable = ['name', 'description', 'category']; */
+
+    //Los campos que queremos ignorar
+
+        //protected $guarded = ['status'];
+        protected $guarded = [];
+
     //protected $table = 'courses';
 
     protected function name(): Attribute

@@ -49,11 +49,13 @@ class CourseController extends Controller
             'category' => 'required'
         ]);
 
-        $course->name = $request->name;
+        $course->update($request->all());
+
+        /* $course->name = $request->name;
         $course->description = $request->description;
         $course->category = $request->category;
 
-        $course->save();
+        $course->save(); */
 
         return redirect()->route('courses.show',$course);
         
@@ -64,13 +66,21 @@ class CourseController extends Controller
 
         //En caso de fallar, de devuelve a la pantalla de donde viene
 
-        $course = new Course();
+        /* $course = new Course();
 
         $course->name = $request->name;
         $course->description = $request->description;
         $course->category = $request->category;
 
-        $savingData = $course->save();
+        $savingData = $course->save(); */
+
+        /* $course = Course::create([
+            'name' => $request->name,
+            'descripcion' => $request->description,
+            'categoria' => $request->category
+        ]); */
+
+        $course = Course::create($request->all());
 
         return redirect()->route('courses.show',$course);
         
