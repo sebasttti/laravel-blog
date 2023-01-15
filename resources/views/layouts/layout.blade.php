@@ -9,10 +9,20 @@
       rel="stylesheet"
     /> --}}
     <title>@yield('title')</title>
+    <style>
+      .active{
+        color: red;
+        font-weight: bold;
+      }
+    </style>
 </head>
 <body>
 
+    @include('layouts.partials.header')
+
     @yield('content')
+
+    @include('layouts.partials.footer')
     
 </body>
 </html>

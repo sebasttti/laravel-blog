@@ -16,7 +16,7 @@ use App\Http\Controllers\CourseController;
 |
 */
 
-Route::get('/', HomeController::class);
+
 
 
 /* Route::controller(CourseController::class)->group(function (){
@@ -38,4 +38,9 @@ Route::get('/', HomeController::class);
 }); */
 
 //Route::resource('subjects',CourseController::class)->parameters(['subjects'=>'course'])->names('courses');
+
+Route::get('/', HomeController::class)->name('home');
+
 Route::resource('courses',CourseController::class);
+
+Route::view('about-us','about-us')->name('about-us');
