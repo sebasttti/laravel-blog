@@ -91,6 +91,12 @@ class CourseController extends Controller
 
         //return view('course.show',['thisCourse'=>$course]);
     }
+
+    public function destroy(Course $course){
+        $course->delete();
+
+        return redirect()->route('courses.index');
+    }
 }
 
 /* Route::get("courses/{curso}/{category?}", function ($course, $category = null){
