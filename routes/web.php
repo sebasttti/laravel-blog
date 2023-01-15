@@ -19,7 +19,7 @@ use App\Http\Controllers\CourseController;
 Route::get('/', HomeController::class);
 
 
-Route::controller(CourseController::class)->group(function (){
+/* Route::controller(CourseController::class)->group(function (){
 
     Route::get('/courses', 'index')->name('courses.index');
 
@@ -35,4 +35,7 @@ Route::controller(CourseController::class)->group(function (){
 
     Route::delete('/courses/{course}/destroy/', 'destroy')->name('courses.destroy');
 
-});
+}); */
+
+//Route::resource('subjects',CourseController::class)->parameters(['subjects'=>'course'])->names('courses');
+Route::resource('courses',CourseController::class);
